@@ -17,6 +17,7 @@
     "idf.toolsPathWin": "C:\\Users\\sherw\\.espressif",
     "files.associations": {
         "md": "markdoc",
-        "inttypes.h": "c"
+        "inttypes.h": "c",
+        "esp_chip_info.h": "c"
     }
 }
