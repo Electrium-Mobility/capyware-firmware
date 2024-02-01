@@ -14,9 +14,9 @@
 // digital output (motor) — GPIO10
 #define DISP_SCL 0
 #define DISP_SDA 1
-#define ANALOG_IN 4
-#define DIG_IN 5
-#define DIG_OUT 10
+#define HALL_SENSOR_IN 4
+#define BUTTON_IN 5
+#define MOTOR_OUT 10
 
 void app_main(void)
 {
