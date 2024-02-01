@@ -7,7 +7,6 @@
 #include "esp_flash.h"
 #include "esp_system.h"
 
-
 // I2C (screen) — GPIO0 (scl) and GPIO1 (sda)
 // analog input (hall sensor) — GPIO4
 // digital input (button) — GPIO5
