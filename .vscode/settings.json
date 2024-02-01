@@ -14,5 +14,9 @@
     ],
     "idf.portWin": "COM1",
     "idf.pythonBinPathWin": "C:\\Users\\sherw\\.espressif\\python_env\\idf5.2_py3.11_env\\Scripts\\python.exe",
-    "idf.toolsPathWin": "C:\\Users\\sherw\\.espressif"
+    "idf.toolsPathWin": "C:\\Users\\sherw\\.espressif",
+    "files.associations": {
+        "md": "markdoc",
+        "inttypes.h": "c"
+    }
 }
