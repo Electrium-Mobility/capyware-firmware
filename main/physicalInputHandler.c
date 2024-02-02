@@ -6,9 +6,9 @@
 //static const char *TAG = "example";
 void setup_inputs(void)
 {
-    gpio_reset_pin();
+    // gpio_reset_pin();
     /* Set the GPIO as a push/pull output */
-    gpio_set_direction(, GPIO_MODE_INPUT);
+    // gpio_set_direction(, GPIO_MODE_INPUT);
 }
 
 int get_digital_input(int pin_number)
