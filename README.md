@@ -16,6 +16,9 @@ We're going to use the ESP-IDF (Espressif IoT Development Framework) for our mai
 ### Opening Menuconfig
 Press `F1` and type `ESP-IDF: SDK Configuration editor (Menuconfig)`. This where you can modify a lot of your code.
 
+### Adding Components
+Many times, you might want to add ESP-IDF Components/Libraries. You can do so by pressing `F1` and typing `ESP-IDF: Show Component Registry` and installing the component you want. This adds to the `idf_component.yml` document in the `main` directory.
+
 ## Example folder contents
 
 The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
