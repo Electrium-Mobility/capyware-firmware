@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include "ssd1306.h"
 
 void app_main(void)
 {
