@@ -8,6 +8,9 @@
 #include "esp_system.h"
 
 #include "physicalInputHandler.h"
+#include "debug.h"
+
+#define DEBUG 1
 
 // I2C (screen) — GPIO0 (scl) and GPIO1 (sda)
 // analog input (hall sensor) — GPIO4
