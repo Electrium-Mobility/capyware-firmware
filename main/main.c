@@ -7,3 +7,6 @@ void app_main(void)
         debug();
     #endif /* DEBUG == 1 */
 }
+
+//Init
+//
