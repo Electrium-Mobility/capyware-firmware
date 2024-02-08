@@ -1,6 +1,9 @@
 #include "main.h"
 
-bool remote_on = true;
+
+int remote_on = 1;
+int speed_level = 1;
+int forward_direction = 1;
 
 void setup_inputs(void)
 {
@@ -13,12 +16,19 @@ void setup_inputs(void)
 
 static void button_single_click_cb(void *arg,void *usr_data)
 {
-    ESP_LOGI("Mode Changed to :", "BUTTON_SINGLE_CLICK");
+    speed_level = (speed_level % 3) + 1;
+    ESP_LOGI("Mode:", "Speed Level: %d", speed_level);
 }
 
 static void button_double_click_cb(void *arg,void *usr_data)
 {
-    ESP_LOGI("Mode Changed to :", "BUTTON_DOUBLE_CLICK");
+    if (forward_direction){
+        forward_direction = 0;
+        ESP_LOGI("Direction:", "Backwards");
+    } else {
+        forward_direction = 1;
+        ESP_LOGI("Direction:", "Forward");
+    }
 }
 
 static void button_long_press_cb(void *arg,void *usr_data)

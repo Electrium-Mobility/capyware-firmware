@@ -5,5 +5,6 @@
     "debug.h": "c",
     "ssd1306_fonts.h": "c",
     "ssd1306.h": "c"
-  }
+  },
+  "idf.adapterTargetName": "esp32"
 }
