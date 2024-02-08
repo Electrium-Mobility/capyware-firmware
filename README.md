@@ -1,4 +1,4 @@
-# _Sample project_
+# Capyware Remote Control Firmware
 ### Hardware 
 We are going to develop on the ESP32-S3. This chip provides all the functionality we primary need, and is honestly
 probably a bit overkill. It comes with BLE, ADC, and GPIO pins.
