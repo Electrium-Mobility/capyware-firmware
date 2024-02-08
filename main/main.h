@@ -9,6 +9,7 @@
 
 #include "physicalInputHandler.h"
 #include "debug.h"
+#include "display.h"
 
 #define DEBUG 1
 
