@@ -128,7 +128,7 @@ void button_double_click_cb(void *arg,void *usr_data)
 void button_long_press_cb(void *arg,void *usr_data)
 {
     remote_on = false;
-    ESP_LOGI("Mode Changed to :", "BUTTON_LONG_PRESS");
+    ESP_LOGI("Power off", "BUTTON_LONG_PRESS");
     store_speed_level();
 }
 
