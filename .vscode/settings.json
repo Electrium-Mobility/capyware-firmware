@@ -14,7 +14,8 @@
     "compare": "c",
     "cstdint": "c",
     "nimbleclient.h": "c",
-    "main.h": "c"
+    "main.h": "c",
+    "iot_button.h": "c"
   },
   "idf.adapterTargetName": "esp32"
 }
