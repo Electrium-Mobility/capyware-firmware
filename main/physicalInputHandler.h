@@ -4,7 +4,7 @@
 #include "esp_adc/adc_continuous.h"
 #include "nvs_flash.h"
 #include "nvs.h"
-
+#include <string.h>
 
 // ADC definitions
 #define _ADC_UNIT_STR(unit)         #unit

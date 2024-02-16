@@ -139,11 +139,13 @@ int get_digital_input(int pin_number)
 
 
 
-// ADC STUFF
-static TaskHandle_t s_task_handle;
-// set adc channel
-static adc_channel_t channel = ADC_CHANNEL_3;
+// ADC init and handling functions
 
+
+TaskHandle_t s_task_handle;
+const char *TAG = "TEST";
+// set adc channel
+adc_channel_t channel[1] = {ADC_CHANNEL_3};
 
 // check if converter is done
 bool IRAM_ATTR s_conv_done_cb(adc_continuous_handle_t handle, const adc_continuous_evt_data_t *edata, void *user_data)
@@ -180,16 +182,15 @@ void continuous_adc_init(adc_channel_t *channel, uint8_t channel_num, adc_contin
         adc_pattern[i].unit = ADC_UNIT;
         adc_pattern[i].bit_width = ADC_BIT_WIDTH;
 
-        ESP_LOGI("adc_pattern[%d].atten is :%"PRIx8, i, adc_pattern[i].atten);
-        ESP_LOGI("adc_pattern[%d].channel is :%"PRIx8, i, adc_pattern[i].channel);
-        ESP_LOGI("adc_pattern[%d].unit is :%"PRIx8, i, adc_pattern[i].unit);
+        ESP_LOGI(TAG, "adc_pattern[%d].atten is :%"PRIx8, i, adc_pattern[i].atten);
+        ESP_LOGI(TAG, "adc_pattern[%d].channel is :%"PRIx8, i, adc_pattern[i].channel);
+        ESP_LOGI(TAG, "adc_pattern[%d].unit is :%"PRIx8, i, adc_pattern[i].unit);
     }
     dig_cfg.adc_pattern = adc_pattern;
     ESP_ERROR_CHECK(adc_continuous_config(handle, &dig_cfg));
 
     *out_handle = handle;
 }
-
 
 void handle_ADC() {
     esp_err_t ret;
@@ -209,7 +210,6 @@ void handle_ADC() {
     ESP_ERROR_CHECK(adc_continuous_start(handle));
 
     while (1) {
-
         /**
          * This is to show you the way to use the ADC continuous mode driver event callback.
          * This `ulTaskNotifyTake` will block when the data processing in the task is fast.
@@ -232,9 +232,9 @@ void handle_ADC() {
                     uint32_t data = ADC_GET_DATA(p);
                     /* Check the channel number validation, the data is invalid if the channel num exceed the maximum channel */
                     if (chan_num < SOC_ADC_CHANNEL_NUM(ADC_UNIT)) {
-                        ESP_LOGI("Unit: %s, Channel: %"PRIu32", Value: %"PRIx32, unit, chan_num, data);
+                        ESP_LOGI(TAG, "Unit: %s, Channel: %"PRIu32", Value: %"PRIx32, unit, chan_num, data);
                     } else {
-                        ESP_LOGW("Invalid data [%s_%"PRIu32"_%"PRIx32"]", unit, chan_num, data);
+                        ESP_LOGW(TAG, "Invalid data [%s_%"PRIu32"_%"PRIx32"]", unit, chan_num, data);
                     }
                 }
                 /**
