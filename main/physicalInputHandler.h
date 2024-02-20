@@ -11,8 +11,8 @@
 #define ADC_UNIT_STR(unit)          _ADC_UNIT_STR(unit)
 
 #define ADC_OUTPUT_TYPE             ADC_DIGI_OUTPUT_FORMAT_TYPE1
-#define ADC_GET_CHANNEL(p_data)     ((p_data)->type1.channel)
-#define ADC_GET_DATA(p_data)        ((p_data)->type1.data)
+#define ADC_GET_CHANNEL(p_data)     ((p_data)->type2.channel)
+#define ADC_GET_DATA(p_data)        ((p_data)->type2.data)
 
 #define ADC_UNIT                    ADC_UNIT_1
 #define ADC_CONV_MODE               ADC_CONV_SINGLE_UNIT_1
