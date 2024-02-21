@@ -1,5 +1,6 @@
 ## IDF Component Manager Manifest File
 dependencies:
+  espressif/ssd1306: "^1.0.5~1"
   espressif/button: "^3.2.0"
   ## Required IDF version
   idf:

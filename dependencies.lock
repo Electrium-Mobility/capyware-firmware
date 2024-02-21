@@ -11,11 +11,17 @@ dependencies:
       service_url: https://api.components.espressif.com/
       type: service
     version: 0.5.3
+  espressif/ssd1306:
+    component_hash: 102cfc05b1b304862fa3f494e9dd955844bcc5f6cb16596e4ca5df3e6bf9fd0d
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.0.5~1
   idf:
     component_hash: null
     source:
       type: idf
-    version: 5.3.0
-manifest_hash: 91bbd1f28d7ed3da25bfdb59cfc2909dd839188b9102ba7b0a0447edcd1ba820
-target: esp32
+    version: 5.2.0
+manifest_hash: 291f52f6bc1a556e76199ebdf10cb948ca3a6430348a477943ff6a0f046e3d6a
+target: esp32s3
 version: 1.0.0
