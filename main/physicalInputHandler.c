@@ -10,7 +10,7 @@ void setup_inputs(void)
     /* Set the GPIO as a push/pull output */
     gpio_set_direction(BUTTON_IN, GPIO_MODE_INPUT);
 
-    button_handle_t gpio_btn = button_setup();
+    button_handle_t gpio_btn = button_setup(BUTTON_IN);
 
     /* Register callback functions */
     iot_button_register_cb(gpio_btn, BUTTON_SINGLE_CLICK, button_single_click_cb, NULL);
@@ -24,7 +24,7 @@ void setup_inputs(void)
 
 }
 
-button_handle_t button_setup(void)
+button_handle_t button_setup(int button_num)
 {
     /* Button initialization */
     button_config_t gpio_btn_cfg = {
@@ -32,7 +32,7 @@ button_handle_t button_setup(void)
         .long_press_time = CONFIG_BUTTON_LONG_PRESS_TIME_MS,
         .short_press_time = CONFIG_BUTTON_SHORT_PRESS_TIME_MS,
         .gpio_button_config = {
-            .gpio_num = 0,
+            .gpio_num = button_num,
             .active_level = 0,
         },
     };
@@ -110,26 +110,29 @@ void load_speed_level(void)
 /* Callback Functions */
 void button_single_click_cb(void *arg, void *usr_data)
 {
-    speed_level = (speed_level % 3) + 1;
-    ESP_LOGI("Mode:", "Speed Level: %d", speed_level);
+    // speed_level = (speed_level % 3) + 1;
+    // ESP_LOGI("Mode:", "Speed Level: %d", speed_level);
+    printf("Single click");
 }
 
 void button_double_click_cb(void *arg,void *usr_data)
 {
-    if (forward_direction){
-        forward_direction = 0;
-        ESP_LOGI("Direction:", "Backwards");
-    } else {
-        forward_direction = 1;
-        ESP_LOGI("Direction:", "Forward");
-    }
+    // if (forward_direction){
+    //     forward_direction = 0;
+    //     ESP_LOGI("Direction:", "Backwards");
+    // } else {
+    //     forward_direction = 1;
+    //     ESP_LOGI("Direction:", "Forward");
+    // }
+    printf("Double click");
 }
 
 void button_long_press_cb(void *arg,void *usr_data)
 {
-    remote_on = false;
-    ESP_LOGI("Power off", "BUTTON_LONG_PRESS");
-    store_speed_level();
+    // remote_on = false;
+    // ESP_LOGI("Power off", "BUTTON_LONG_PRESS");
+    // store_speed_level();
+    printf("Long press click");
 }
 
 int get_digital_input(int pin_number)

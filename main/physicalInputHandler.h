@@ -21,7 +21,7 @@
 #define READ_LEN                    256
 
 void setup_inputs(void);
-button_handle_t button_setup(void);
+button_handle_t button_setup(int button_num);
 void nvs_init(void);
 void store_speed_level(void);
 void load_speed_level(void);

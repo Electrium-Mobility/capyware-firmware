@@ -1,5 +1,4 @@
 #include "main.h"
-// #define DEBUG 1
 
 void app_main(void)
 {
@@ -7,6 +6,7 @@ void app_main(void)
         debug();
     #endif /* DEBUG == 1 */
     // fprintf('Hello world')
+    setup_inputs();
 }
 
 //Init

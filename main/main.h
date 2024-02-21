@@ -11,7 +11,7 @@
 #include "debug.h"
 #include "display.h"
 
-#define DEBUG 1
+#define DEBUG 0
 
 // I2C (screen) — GPIO0 (scl) and GPIO1 (sda)
 // analog input (hall sensor) — GPIO4
