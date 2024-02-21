@@ -14,7 +14,8 @@
     "compare": "c",
     "cstdint": "c",
     "nimbleclient.h": "c",
-    "main.h": "c"
+    "main.h": "c",
+    "esp_nimble_hci.h": "c"
   },
   "idf.adapterTargetName": "esp32"
 }

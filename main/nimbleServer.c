@@ -17,35 +17,41 @@
 #include "sdkconfig.h"
 
 
+#define ADV_INTERVAL_MS     1000
+#define ADV_DURATION_S      0
+
 uint8_t ble_addr_type;
+float speed = 50.0;
+float battery = 0.50;
 
-// Define a struct of data to be sent from the remote
-struct motor_data {
-    float motor_battery;
-};
-
-struct controller_data {
-    float velocity;
-};
 
 // Write data to ESP32 defined as server
 static int device_write(uint16_t conn_handle, uint16_t attr_handle, struct ble_gatt_access_ctxt *ctxt, void *arg)
 {
-    uint8_t* data = ctxt->om->om_data;
+    // Check if ctxt->om->om_len has the correct size for a float
+    if (ctxt->om->om_len == sizeof(float)) 
+    {
+        // Copy the bytes from the byte array to the float variable
+        memcpy(&speed, ctxt->om->om_data, sizeof(float));
+    }
     return 0;
 }
+
 
 // Read data from ESP32 defined as server
 static int device_read(uint16_t con_handle, uint16_t attr_handle, struct ble_gatt_access_ctxt *ctxt, void *arg)
 {
-    os_mbuf_append(ctxt->om, "Data from the server", strlen("Data from the server"));
+    uint8_t float_bytes[sizeof(float)]; 
+    memcpy(float_bytes, &battery, sizeof(float));
+    os_mbuf_append(ctxt->om, float_bytes, sizeof(float));
+
     return 0;
 }
 
 
 // Array of pointers to other service definitions
-// UUID - Universal Unique Identifier
-static const struct ble_gatt_svc_def gatt_svcs[] = {
+static const struct ble_gatt_svc_def gatt_svcs[] = 
+{
     {.type = BLE_GATT_SVC_TYPE_PRIMARY,
      .uuid = BLE_UUID16_DECLARE(0x180),                 // Define UUID for device type
      .characteristics = (struct ble_gatt_chr_def[]){
@@ -56,7 +62,7 @@ static const struct ble_gatt_svc_def gatt_svcs[] = {
           .flags = BLE_GATT_CHR_F_WRITE,
           .access_cb = device_write},
          {0}}},
-    {0}};
+{0}};
 
 
 // The application
@@ -71,7 +77,7 @@ void host_task(void *param)
     nimble_port_run(); // This function will return only when nimble_port_stop() is executed
 }
 
-void app_main()
+void run_server()
 {
     nvs_flash_init();                          // 1 - Initialize NVS flash using
     nimble_port_init();                        // 3 - Initialize the host stack and controller
