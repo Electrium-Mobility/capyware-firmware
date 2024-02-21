@@ -112,7 +112,7 @@ void button_single_click_cb(void *arg, void *usr_data)
 {
     // speed_level = (speed_level % 3) + 1;
     // ESP_LOGI("Mode:", "Speed Level: %d", speed_level);
-    printf("Single click");
+    ESP_LOGI("button test:", "Single click");
 }
 
 void button_double_click_cb(void *arg,void *usr_data)
@@ -124,7 +124,7 @@ void button_double_click_cb(void *arg,void *usr_data)
     //     forward_direction = 1;
     //     ESP_LOGI("Direction:", "Forward");
     // }
-    printf("Double click");
+    ESP_LOGI("button test: ", "Double click");
 }
 
 void button_long_press_cb(void *arg,void *usr_data)
@@ -132,7 +132,7 @@ void button_long_press_cb(void *arg,void *usr_data)
     // remote_on = false;
     // ESP_LOGI("Power off", "BUTTON_LONG_PRESS");
     // store_speed_level();
-    printf("Long press click");
+    ESP_LOGI("button test: ", "long press");
 }
 
 int get_digital_input(int pin_number)
