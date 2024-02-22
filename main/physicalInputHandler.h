@@ -16,7 +16,7 @@
 
 #define ADC_UNIT                    ADC_UNIT_1
 #define ADC_CONV_MODE               ADC_CONV_SINGLE_UNIT_1
-#define ADC_ATTEN                   ADC_ATTEN_DB_12
+#define ADC_ATTEN                   ADC_ATTEN_DB_11 //Changed to 11
 #define ADC_BIT_WIDTH               SOC_ADC_DIGI_MAX_BITWIDTH
 #define READ_LEN                    256
 
