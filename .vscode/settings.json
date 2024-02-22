@@ -15,6 +15,7 @@
     "cstdint": "c",
     "nimbleclient.h": "c",
     "main.h": "c",
+    "esp_nimble_hci.h": "c",
     "iot_button.h": "c"
   },
   "idf.adapterTargetName": "esp32s3",
