@@ -1,27 +1,33 @@
 dependencies:
-  espressif/button:
-    component_hash: 1f5297fe16f0ee988dbb14b6f4c91782fe2baf85025bb15cc1e0093edd3fb2ee
-    source:
-      service_url: https://api.components.espressif.com/
-      type: service
-    version: 3.2.0
   espressif/cmake_utilities:
     component_hash: 351350613ceafba240b761b4ea991e0f231ac7a9f59a9ee901f751bddc0bb18f
     source:
       service_url: https://api.components.espressif.com/
       type: service
     version: 0.5.3
-  espressif/ssd1306:
-    component_hash: 102cfc05b1b304862fa3f494e9dd955844bcc5f6cb16596e4ca5df3e6bf9fd0d
+  espressif__button:
+    component_hash: null
     source:
-      service_url: https://api.components.espressif.com/
-      type: service
+      path: /home/ajh/capy2/capyware-firmware/components/espressif__button
+      type: local
+    version: 3.2.0
+  espressif__cmake_utilities:
+    component_hash: null
+    source:
+      path: /home/ajh/capy2/capyware-firmware/components/espressif__cmake_utilities
+      type: local
+    version: 0.5.3
+  espressif__ssd1306:
+    component_hash: null
+    source:
+      path: /home/ajh/capy2/capyware-firmware/components/espressif__ssd1306
+      type: local
     version: 1.0.5~1
   idf:
     component_hash: null
     source:
       type: idf
-    version: 5.1.2
-manifest_hash: a0ce94d19205b4f0ad7653b374e6e3747725c3584314c1510cdaa2743820877b
+    version: 5.4.0
+manifest_hash: f1a8ba59ae7d02213d1d5c8aa674d709de6388fded8a4ee9db891c3e41f60948
 target: esp32s3
 version: 1.0.0
